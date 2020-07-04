@@ -1,8 +1,17 @@
 <h1>Cocktails#index</h1>
 <p>Find me in app/views/cocktails/index.html.erb</p>
 
-<ol>
+<div class="card-columns my-3">
   <% @cocktails.each do |cocktail| %>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+    <div class="card bg-dark text-light d-flex justify-content-center p-3">
+      <div>
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      </div>
+      <div>
+        <%= image_tag("bar.jpg", class: "card-img-right")  %>
+      </div>
+    </div>
   <% end %>
-</ol>
+</div>
+
+<%= link_to 'Make a new cocktail', new_cocktail_path %>
