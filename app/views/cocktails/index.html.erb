@@ -3,15 +3,26 @@
 
 <div class="card-columns my-3">
   <% @cocktails.each do |cocktail| %>
-    <div class="card bg-dark text-light d-flex justify-content-center p-3">
-      <div>
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+  <div class="card p-0">
+    <div class="card-body bg-dark text-light row p-0">
+      <div class="col-sm-6 text-center p-3">
+        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
       </div>
-      <div>
-        <%= image_tag("bar.jpg", class: "card-img-right")  %>
+      <div class="col-sm-5 p-0">
+        <%= image_tag("1.jpg")  %>
       </div>
     </div>
+  </div>
   <% end %>
+</div>
+
+<div class="card-columns">
+  <div class="card">
+    <div class="card-body row">
+      <div class="col-sm-6 bg-dark">Hello</div>
+      <div class="col-sm-6 bg-primary">Hello</div>
+    </div>
+  </div>
 </div>
 
 <%= link_to 'Make a new cocktail', new_cocktail_path %>
