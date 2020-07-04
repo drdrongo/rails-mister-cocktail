@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :doses, only: %i[create]
   end
   resources :doses, only: %i[destroy]
+  resources :ingredients, only: %i[index show new create]
 end

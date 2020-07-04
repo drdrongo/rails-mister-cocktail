@@ -27,4 +27,25 @@ objs['drinks'].each do |drink|
 end
 
 puts "#{Ingredient.all.count} ingredients created."
+
+puts 'Creating 10 cocktails...'
+
+10.times do
+  cocktail = Cocktail.new(
+    name: Faker::Coffee.blend_name
+  )
+  cocktail.save
+  ingredients = Ingredient.all.sample(3)
+  ingredients.each do |ingredient|
+    dose = Dose.new(
+      description: Faker::Measurement.volume,
+      ingredient_id: ingredient.id,
+      cocktail_id: cocktail.id
+    )
+    dose.save
+  end
+end
+
+puts '10 cocktails created.'
+
 puts 'All done. Have a nice day.'
