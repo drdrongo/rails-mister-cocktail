@@ -14,6 +14,8 @@ require 'open-uri'
 require 'JSON'
 
 puts 'Cleaning database...'
+Dose.destroy_all
+Cocktail.destroy_all
 Ingredient.destroy_all
 puts 'Database cleaned.'
 
