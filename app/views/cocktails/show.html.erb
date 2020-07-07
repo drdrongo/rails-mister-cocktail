@@ -1,6 +1,6 @@
 <div class="main-container gradient-container">
   <div>
-    <%= image_tag("1.jpg", class: "image-blurred-edge")%>
+    <%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill %>
   </div>
   <div class="doses-container">
     <h1> <%= @cocktail.name %> </h1>

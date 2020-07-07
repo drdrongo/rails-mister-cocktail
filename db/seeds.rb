@@ -13,6 +13,18 @@
 require 'open-uri'
 require 'json'
 
+pictures = %w[cocktail_1_fjltrd
+              cocktail_2_jk2xwo
+              cocktail_3_okx84z
+              cocktail_4_fmrjjt
+              cocktail_5_xljboq
+              cocktail_6_p4va6g
+              cocktail_7_sdbazx
+              cocktail_8_it7zaj
+              cocktail_9_vhrxa1
+              cocktail_10_ro1fjr
+              cocktail_11_pntxst]
+
 puts 'Cleaning database...'
 Dose.destroy_all
 Cocktail.destroy_all
@@ -22,7 +34,7 @@ puts 'Database cleaned.'
 puts 'Creating new ingredients...'
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-json = open(url).read
+json = URI.open(url).read
 objs = JSON.parse(json)
 objs['drinks'].each do |drink|
   Ingredient.create(name: drink['strIngredient1'])
@@ -36,6 +48,8 @@ puts 'Creating 10 cocktails...'
   cocktail = Cocktail.new(
     name: Faker::Coffee.blend_name
   )
+  file = URI.open("https://res.cloudinary.com/hayatocloud/image/upload/#{pictures.sample}.jpg")
+  cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
   cocktail.save
   ingredients = Ingredient.all.sample(3)
   ingredients.each do |ingredient|

@@ -38,10 +38,10 @@
     <div class="drink-cards-container">
       <% @cocktails.each do |cocktail| %>
       <div class="drink-card bg-dark">
-        <div class="drink-card-body">
+        <div class="drink-card-body" style="background-image: url(<%= cl_image_tag cocktail.photo.key  %>);">
           <h5><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
         </div>
-        <%= image_tag("1.jpg")  %>
+        <%= cl_image_tag cocktail.photo.key  %>
       </div>
       <% end %>
     </div>
