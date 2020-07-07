@@ -1,11 +1,25 @@
+<div class="main-container gradient-container">
+  <div>
+    <%= image_tag("1.jpg", class: "image-blurred-edge")%>
+  </div>
+  <div class="doses-container">
+    <h1> <%= @cocktail.name %> </h1>
+    <% @doses.each do |dose| %>
+      <h2>
+        <%= "#{dose.description} #{dose.ingredient.name}" %>
+        <span class="dose-options">
+          <%= link_to dose_path(dose), method: :delete, data: {confirm: 'Delete this ingredient?'} do %>
+            <i class="fas fa-trash text-light"></i>
+          <% end %>
+        </span>
+      </h2>
+    <% end %>
+
+    <%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
+  </div>
+</div>
 
 
-<h1> <%= @cocktail.name %> </h1>
-<% @doses.each do |dose| %>
-  <h2> <%= "#{dose.description} #{dose.ingredient.name}" %> </h2>
-  <%= link_to 'destroy dose', dose_path(dose), method: :delete %>
-<% end %>
 
 
-<%= link_to "add ingredients", new_cocktail_dose_path(@cocktail) %>
 <%= link_to "Home", cocktails_path %>

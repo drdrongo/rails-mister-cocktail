@@ -1,14 +1,48 @@
-img {
-  object-fit: cover;
-  width: 100%;
-  padding: 0;
+.drink-cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.card-columns {
-  @include media-breakpoint-only(lg) {
-    column-count: 4;
+.drink-card {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  flex-basis: 33%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.drink-card-body {
+  word-wrap: break;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.drink-card-body h5 {
+  word-break: break-word;
+  text-decoration: none;
+  color: white;
+}
+
+.drink-card img {
+  height: 100%;
+  object-fit: cover;
+  width: 35%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media screen and (max-width: 50em) {
+  .drink-card {
+    flex-basis: 49%;
   }
-  @include media-breakpoint-only(xl) {
-    column-count: 5;
+}
+
+@media screen and (max-width: 35em) {
+  .drink-card {
+    flex-basis: 100%;
   }
 }
