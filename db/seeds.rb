@@ -11,7 +11,7 @@
 # Ingredient.create(name: "mint leaves")
 
 require 'open-uri'
-require 'JSON'
+require 'json'
 
 puts 'Cleaning database...'
 Dose.destroy_all
