@@ -1,5 +1,5 @@
 <%= simple_form_for([cocktail, dose]) do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient, collection: Ingredient.all.order(name: :asc) %>
-  <%= f.submit class: 'btn btn-outline-danger' %>
+  <%= f.input :description, placeholder: '20ml' %>
+  <%= f.association :ingredient, collection: Ingredient.all.order(name: :asc), selected: 1 %>
+  <%= f.submit class: 'btn btn-warning' %>
 <% end %>

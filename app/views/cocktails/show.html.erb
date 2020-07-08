@@ -1,8 +1,10 @@
-<div class="main-container gradient-container">
-  <div style="width: 300px; height: 500px;">
-    <%= cl_image_tag @cocktail.photo.key, height: 1200, width: 800, crop: :fill %>
-  </div>
-  <div class="doses-container">
+<div class="container-cocktail" style="
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
+    background-size: cover;
+    background-position: center;
+    ">
+  <div class="container-doses">
     <h1> <%= @cocktail.name %> </h1>
     <% @doses.each do |dose| %>
       <h2>
@@ -17,9 +19,5 @@
 
     <%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
   </div>
+  <%= link_to "Home", cocktails_path %>
 </div>
-
-
-
-
-<%= link_to "Home", cocktails_path %>
