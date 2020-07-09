@@ -20,6 +20,7 @@ const loadDynamicBannerText = () => {
     "Ice Pick",
     "sherry",
     ],
+    attr: 'placeholder',
     typeSpeed: 100,
     loop: true
   });
