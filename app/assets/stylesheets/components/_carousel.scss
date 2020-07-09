@@ -1,16 +1,30 @@
-.carousel {
-    height: 700px;
-}
-
 .carousel-inner {
     pointer-events: none;
     z-index:10;
     width: 100%; /*this must stay */
-    height: 100%; /*this must stay */
+    height: 70vh; /*this must stay */
 }
 
 .carousel-controls {
   z-index: 20;
+}
+
+.btn-blue {
+  background-color: #90C5E4;
+  padding: 8px 16px;
+  font-size: 16px;
+  color: white;
+  border: 1px solid white;
+  &:hover {
+    background-color: #FDE7A6;
+    color: grey;
+  }
+}
+
+.search-box {
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .carousel-form {
@@ -32,20 +46,29 @@
   }
 }
 
-.btn-blue {
-  background-color: #90C5E4;
-  padding: 8px 16px;
-  font-size: 16px;
-  color: white;
-  border: 1px solid white;
-  &:hover {
-    background-color: #FDE7A6;
-    color: grey;
+@media only screen and (max-width: 1000px) {
+  .carousel-form {
+    top: 22%;
   }
 }
 
-.search-box {
-  height: 40px;
-  border: 1px solid white;
-  border-radius: 5px;
+@media only screen and (max-width: 800px) {
+  .carousel-form {
+    top: 15%;
+  }
+  .carousel-inner {
+    height: 45vh;
+  }
 }
+
+@media only screen and (max-width: 600px) {
+  .carousel-form {
+    top: 5%;
+    h1 {
+      font-size: 24px;
+    }
+  }
+}
+
+
+

@@ -30,6 +30,11 @@
   }
 }
 
+.drink-cards-container::after {
+  content: '';
+  flex: auto;
+}
+
 .drink-card-body {
   word-wrap: break;
   width: 100%;
