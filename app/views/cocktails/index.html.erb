@@ -1,14 +1,11 @@
 <head>
   <title>Spirits Journey</title>
   <meta name="description" content="Find your new favorite drink">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
-
-
-
   <div class="container-fluid mb-3">
-
     <div id="carousel-main" class="carousel slide" data-ride="carousel">
 
       <div class="carousel-form">
@@ -57,7 +54,7 @@
   <div class="container-fluid">
     <div class="drink-cards-container">
       <% @cocktails.each do |cocktail| %>
-        <%= link_to cocktail_path(cocktail), class: "drink-card", :action => 'go' do %>
+        <%= link_to cocktail_path(cocktail), class: "drink-card", "data-aos" => "fade-in", :action => 'go' do %>
             <div class="drink-card-body">
               <h2><%=cocktail.name%></h2>
             </div>
@@ -70,5 +67,12 @@
       <% end %>
     </div>
   </div>
+
+
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 </body>
