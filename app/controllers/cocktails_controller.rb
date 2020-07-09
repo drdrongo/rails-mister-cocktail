@@ -2,7 +2,13 @@ class CocktailsController < ApplicationController
   before_action :find_doses, only: %i[show]
 
   def index
-    @cocktails = Cocktail.all
+    if params[:query].present?
+      @cocktails = Cocktail.flavor_search(params[:query]).collect.to_a
+      cocktails_by_name = Cocktail.where(['name LIKE ?', "%#{params[:query]}%"]).to_a
+      @cocktails += cocktails_by_name
+    else
+      @cocktails = Cocktail.all
+    end
   end
 
   def show

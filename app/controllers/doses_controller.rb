@@ -1,8 +1,10 @@
 class DosesController < ApplicationController
-  before_action :find_cocktail, only: %i[new create]
+  before_action :find_cocktail, only: %i[index create]
 
-  def new
+  def index
     @dose = Dose.new
+    @doses = Dose.where(cocktail_id: params[:cocktail_id])
+    render template: 'cocktails/show'
   end
 
   def create
@@ -11,7 +13,7 @@ class DosesController < ApplicationController
     if @dose.save
       redirect_to cocktail_path(@dose.cocktail)
     else
-      @doses = Dose.where(cocktail_id: params[:id])
+      @doses = Dose.where(cocktail_id: params[:cocktail_id])
       render template: 'cocktails/show'
     end
   end

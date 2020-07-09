@@ -1,9 +1,11 @@
 <div class="container-cocktail" style="
+  <% if @cocktail.photo.attached? %>
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
-    background-size: cover;
-    background-position: center;
-    ">
+  <% end %>
+  background-size: cover;
+  background-position: center;
+  ">
   <div class="container-doses">
     <h1> <%= @cocktail.name %> </h1>
     <% @doses.each do |dose| %>

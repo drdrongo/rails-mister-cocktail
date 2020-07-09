@@ -1,4 +1,40 @@
+// .carousel-inner {
+//   width: 100%;
+//   max-height: 70vh !important;
+// }
+
+
+.myButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 15; /*not working */
+    pointer-events: auto;
+}
+
+.carousel {
+    height: 700px;
+}
+
 .carousel-inner {
-  width: 100%;
-  max-height: 70vh !important;
+    pointer-events: none;
+    z-index:10;
+    width: 100%; /*this must stay */
+    height: 100%; /*this must stay */
+}
+
+.carousel-controls {
+  z-index: 20;
+}
+
+.carousel-search-bar {
+  position: absolute;
+  z-index: 25;
+  top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+
 }
