@@ -12,14 +12,14 @@
     <div id="carousel-main" class="carousel slide" data-ride="carousel">
 
       <div class="carousel-form">
-        <h1 style="color: white; font-weight: bold;">Take your Spirits Journey</h1>
+        <h1 style="color: white; font-weight: bold; text-shadow: 1px 1px grey;">Take your Spirits Journey</h1>
         <%= form_tag cocktails_path, class: 'carousel-search-bar', method: :get do %>
           <%= text_field_tag :query, params[:query], class: "search-box p-1", id: "banner-typed-text" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-warning" %>
         <% end %>
         <h5>-- or --</h5>
 
-        <%= link_to 'create your own', new_cocktail_path, class: "btn btn-orange my-3" %>
+        <%= link_to 'create your own', new_cocktail_path, class: "btn btn-blue my-3" %>
       </div>
 
 
@@ -62,7 +62,7 @@
               <h2><%=cocktail.name%></h2>
             </div>
             <% if cocktail.photo.attached? %>
-              <%= cl_image_tag cocktail.photo.key, width: 500, height: 500  %>
+              <%= cl_image_tag(cocktail.photo.key, width: 500, height: 500, crop: "fit")  %>
             <% else %>
               <%= image_tag 'no_image.png' %>
             <% end %>
