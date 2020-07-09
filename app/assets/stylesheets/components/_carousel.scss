@@ -27,14 +27,29 @@
   z-index: 20;
 }
 
-.carousel-search-bar {
+.carousel-form {
   position: absolute;
   z-index: 25;
-  top: 50%;
+  top: 40%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
   text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 0;
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+  h5 {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+}
 
+.btn-orange {
+  background-color: orange;
+}
+
+.search-box {
+  height: 40px;
 }

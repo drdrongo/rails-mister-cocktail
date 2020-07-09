@@ -3,11 +3,12 @@
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
   <% end %>
+  margin-bottom: 100px;
   background-size: cover;
   background-position: center;
   ">
   <div class="container-doses">
-    <h1> <%= @cocktail.name %> </h1>
+    <h1 style="font-size: 80px;"> <%= @cocktail.name %> </h1>
     <% @doses.each do |dose| %>
       <h2>
         <%= "#{dose.description} #{dose.ingredient.name}" %>
@@ -21,5 +22,4 @@
 
     <%= render 'doses/form', cocktail: @cocktail, dose: @dose %>
   </div>
-  <%= link_to "Home", cocktails_path %>
 </div>

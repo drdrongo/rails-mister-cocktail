@@ -22,10 +22,7 @@
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
+          <%= link_to "Home", cocktails_path %>
         </li>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -33,5 +30,14 @@
       </ul>
     </div>
     <%= yield %>
+
+    <div class="footer">
+      <h2>Follow me</h2>
+      <ul class="list-inline">
+        <li><a href="instagram.com" class="btn-white social-link"><i class="fab fa-instagram">         </i></a></li>
+        <li><a href="github.com" class="btn-white social-link"><i class="fab fa-github-square">     </i></a></li>
+        <li><a href="facebook.com" class="btn-white social-link"><i class="fab fa-facebook-square">   </i></a></li>
+      </ul>
+    </div>
   </body>
 </html>

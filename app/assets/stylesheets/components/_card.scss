@@ -12,6 +12,22 @@
   flex-basis: 33%;
   margin-bottom: 5px;
   border-radius: 5px;
+  background: rgb(152,152,152);
+  background: linear-gradient(180deg, rgba(152,152,152,0.8673844537815126) 0%, rgba(70,70,70,1) 100%);
+  transition: background-color 0.2s, color 0.2s;
+  &:hover {
+    text-decoration: none;
+    background-color: grey;
+    transform: translateY(-1px);
+    transition: background-color 0.2s;
+    h2 {
+      color: orange;
+      transition: color 0.2s;
+    }
+  }
+  &:active {
+    transform: transateY(1px);
+  }
 }
 
 .drink-card-body {
@@ -21,7 +37,7 @@
   text-align: center;
 }
 
-.drink-card-body h5 {
+.drink-card-body h2 {
   word-break: break-word;
   text-decoration: none;
   color: white;

@@ -11,10 +11,17 @@
 
     <div id="carousel-main" class="carousel slide" data-ride="carousel">
 
-      <%= form_tag cocktails_path, class: 'carousel-search-bar', method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "search-box" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
-      <% end %>
+      <div class="carousel-form">
+        <h1 style="color: white; font-weight: bold;">Take your Spirits Journey</h1>
+        <%= form_tag cocktails_path, class: 'carousel-search-bar', method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "search-box p-1", id: "banner-typed-text" %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-warning" %>
+        <% end %>
+        <h5>-- or --</h5>
+
+        <%= link_to 'create your own', new_cocktail_path, class: "btn btn-orange my-3" %>
+      </div>
+
 
       <ol class="carousel-indicators">
         <li data-target="#carousel-main" data-slide-to="0" class="active"></li>
@@ -50,19 +57,18 @@
   <div class="container-fluid">
     <div class="drink-cards-container">
       <% @cocktails.each do |cocktail| %>
-      <div class="drink-card bg-dark">
-        <div class="drink-card-body">
-          <h5><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
-        </div>
-        <% if cocktail.photo.attached? %>
-          <%= cl_image_tag cocktail.photo.key, width: 500, height: 500  %>
-        <% else %>
-          <%= image_tag 'no_image.png' %>
+        <%= link_to cocktail_path(cocktail), class: "drink-card", :action => 'go' do %>
+            <div class="drink-card-body">
+              <h2><%=cocktail.name%></h2>
+            </div>
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag cocktail.photo.key, width: 500, height: 500  %>
+            <% else %>
+              <%= image_tag 'no_image.png' %>
+            <% end %>
         <% end %>
-      </div>
       <% end %>
     </div>
   </div>
 
-  <%= link_to 'Make a new cocktail', new_cocktail_path %>
 </body>
