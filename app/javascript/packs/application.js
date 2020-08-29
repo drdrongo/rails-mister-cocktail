@@ -15,9 +15,21 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 
+
+const hamburger = () => {
+  let x = document.getElementById("myLinks");
+  if (x.style.display === "flex") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "flex";
+  }
+};
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
+  document.getElementById("hamburger").addEventListener("click", hamburger)
   loadDynamicBannerText();
   AOS.init({
     // Global settings:

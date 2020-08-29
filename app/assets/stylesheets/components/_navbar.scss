@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: orangered;
+  background: #E67E22;
   height: 10vh;
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid #E67E22;
   padding-left: 24px;
   padding-right: 24px;
   overflow: hidden;
@@ -17,7 +17,6 @@
 }
 
 #myLinks {
-  // display: none;
   position: absolute;
   width: 100%;
   top: 10vh;
@@ -28,6 +27,9 @@
   align-items: center;
   font-family: 'Pacifico';
   font-size: 2em;
+  z-index: 99;
+  padding-top: 24px;
+  padding-bottom: 24px;
   a {
     color: white;
     text-decoration: none;

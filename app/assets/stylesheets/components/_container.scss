@@ -1,3 +1,9 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 10vh - 12vh);
+}
+
 .container-cocktail {
   color: white;
   background-size: cover;
