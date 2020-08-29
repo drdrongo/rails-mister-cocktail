@@ -15,29 +15,10 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-lewagon">
-      <a class="navbar-brand" href="/">
-        <i class="fas fa-glass-martini-alt"></i>
-      </a>
-
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to "Home", cocktails_path %>
-        </li>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </ul>
+    <%= render 'shared/navbar' %>
+    <div class="content">
+      <%= yield %>
     </div>
-    <%= yield %>
-
-    <div class="footer">
-      <h2>Follow me</h2>
-      <ul class="list-inline">
-        <li><a href="instagram.com" class="btn-white social-link"><i class="fab fa-instagram">         </i></a></li>
-        <li><a href="github.com" class="btn-white social-link"><i class="fab fa-github-square">     </i></a></li>
-        <li><a href="facebook.com" class="btn-white social-link"><i class="fab fa-facebook-square">   </i></a></li>
-      </ul>
-    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

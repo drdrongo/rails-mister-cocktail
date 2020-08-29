@@ -1,23 +1,47 @@
-.navbar-lewagon {
+.navbar-cocktail {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: black;
-  height: 56px;
-  color: black;
+  background: orangered;
+  height: 10vh;
   border-bottom: 1px solid orange;
+  padding-left: 24px;
+  padding-right: 24px;
+  overflow: hidden;
+  position: relative;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-links {
+  display: flex;
+  align-items: center;
 }
 
-.navbar-lewagon a {
+#myLinks {
+  // display: none;
+  position: absolute;
+  width: 100%;
+  top: 10vh;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Pacifico';
+  font-size: 2em;
+  a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 8px;
+  }
+}
+
+.navbar-cocktail a {
   color: white;
-  font-weight: normal;
   font-family: 'Pacifico', cursive;
-  font-size: 32px;
+  font-size: 2em;
   text-decoration: none;
-      transition: color 0.3s;
-
+  transition: color 0.3s;
+ 
   &:hover {
     color: orange;
     transition: color 0.3s;
@@ -42,3 +66,5 @@
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+
