@@ -2,7 +2,7 @@
     pointer-events: none;
     z-index:10;
     width: 100%; /*this must stay */
-    height: 70vh; /*this must stay */
+    height: 100%; /*this must stay */
 }
 
 .carousel-controls {
@@ -57,7 +57,7 @@
     top: 15%;
   }
   .carousel-inner {
-    height: 45vh;
+    height: 100%;
   }
 }
 
