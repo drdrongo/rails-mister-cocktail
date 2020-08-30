@@ -1,0 +1,2 @@
+module SavedCocktailsHelper
+end

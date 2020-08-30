@@ -4,7 +4,9 @@ class Cocktail < ApplicationRecord
   has_many :ingredients, through: :doses
   has_one_attached :photo
 
-  has_many :users, through: :saved_cocktails
+
+  belongs_to :user
+  # has_many :users, through: :saved_cocktails
 
   validates :name, presence: true, uniqueness: true
 

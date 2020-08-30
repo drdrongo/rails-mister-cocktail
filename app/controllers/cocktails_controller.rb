@@ -12,7 +12,7 @@ class CocktailsController < ApplicationController
   end
 
   def my_cocktails
-    @my_cocktails = Cocktail.where(creator: current_user)
+    @my_cocktails = Cocktail.where(user: current_user)
     @saved_cocktails = SavedCocktail.where(user: current_user).includes(:cocktail)
   end
 

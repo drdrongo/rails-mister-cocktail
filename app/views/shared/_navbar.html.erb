@@ -18,7 +18,7 @@
   <%= link_to 'Home', root_path %>
   <%= link_to 'Contact', contact_path %>
   <% if user_signed_in? %>
-    <%= link_to 'My Cocktails', my_cocktails_path %>
+    <%= link_to 'My Cocktails', user_path(current_user) %>
     <%= link_to 'New Cocktail', new_cocktail_path %>
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
   <% else %>

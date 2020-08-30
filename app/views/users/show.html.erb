@@ -1,0 +1,20 @@
+<div class="container" style="background-color: white;">
+  <h1>My Page</h1>
+
+  <h1>My Created Cocktails:</h1>
+
+  <%= @my_cocktails.each do |cocktail| %>
+    <%= cocktail.name %>
+  <% end %>
+
+  <% if false %>
+    <h1>Saved Cocktails:</h1>
+
+    <%= @saved_cocktails.each do |cocktail| %>
+      <%= cocktail.name %>
+    <% end %>
+  <% end %>
+
+</div>
+
+
