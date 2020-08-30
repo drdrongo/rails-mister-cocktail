@@ -29,6 +29,8 @@ puts 'Cleaning database...'
 Dose.destroy_all
 Cocktail.destroy_all
 Ingredient.destroy_all
+User.destroy_all
+SavedCocktail.destroy_all
 puts 'Database cleaned.'
 
 puts 'Creating new ingredients...'
@@ -42,14 +44,35 @@ end
 
 puts "#{Ingredient.all.count} ingredients created."
 
+10.times do
+  user = User.new(
+    first_name: 'Dick',
+    last_name: 'Tail',
+    email: Faker::Internet.email,
+    password: 'secret'
+  )
+  user.save
+end
+
+User.create(
+  first_name: 'Hayato',
+  last_name: 'Clarke',
+  email: 'hayato@gmail.com',
+  password: 'secret'
+)
+
+
 puts 'Creating 10 cocktails...'
 
-10.times do
+User.all.each do |user|
   cocktail = Cocktail.new(
     name: Faker::Coffee.blend_name
-  )
-  file = URI.open("https://res.cloudinary.com/hayatocloud/image/upload/#{pictures.sample}.jpg")
-  cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
+  ) 
+  file = URI.open("https://source.unsplash.com/featured/?cocktail")
+  cocktail.photo.attach(io: file, filename: "#{cocktail.name}.jpg", content_type: 'image/jpg')
+  
+  cocktail.user = user
+
   cocktail.save
   ingredients = Ingredient.all.sample(3)
   ingredients.each do |ingredient|
@@ -61,6 +84,8 @@ puts 'Creating 10 cocktails...'
     dose.save
   end
 end
+
+
 
 puts '10 cocktails created.'
 

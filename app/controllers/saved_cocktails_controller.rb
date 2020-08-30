@@ -1,0 +1,2 @@
+class SavedCocktailsController < ApplicationController
+end
