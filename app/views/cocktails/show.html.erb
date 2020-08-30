@@ -1,27 +1,3 @@
-<% if false %>
-  
-<% end %>
-
-<% if false %>
-  <div class="w-100 h-100" style="display: flex; flex-direction: column; flex-grow: 1; align-items: center;">
-  <%= image_tag "https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}", style: "height: 30vh; width: 100%; object-fit: cover; object-position: center;" %>
-  <div class="container" style="margin-right: 16px; margin-left: 16px; flex-grow: 1;">
-    <h1 style="font-size: 2.5em; text-align: center; color: white; margin-bottom: 20px; margin-top: 20px;"> <%= @cocktail.name %> </h1>
-    <% @doses.each do |dose| %>
-      <div style="display: flex; width: 100%; justify-content: space-between;">
-        <p style="font-family: Times New Roman; color: white; font-size: 1.7em;">
-          <%= dose.ingredient.name %>
-        </p>
-        
-        <p style="font-family: Times New Roman; font-size: 1.7em; color: #E67E22;">
-          <%= dose.description %>
-        </p>
-      </div>
-    <% end %>
-  </div>
-</div>
-<% end %>
-
 <div class="w-100 h-100" style="
   <% if @cocktail.photo.attached? %>
     background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
