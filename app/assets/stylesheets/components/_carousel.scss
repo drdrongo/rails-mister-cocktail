@@ -1,8 +1,12 @@
+
+
 .carousel-inner {
     pointer-events: none;
     z-index:10;
     width: 100%; /*this must stay */
     height: 100%; /*this must stay */
+    min-height: 270px;
+    max-height: 50vh;
 }
 
 .carousel-controls {
@@ -63,7 +67,7 @@
 
 @media only screen and (max-width: 600px) {
   .carousel-form {
-    top: 5%;
+    top: 10%;
     h1 {
       font-size: 24px;
     }
