@@ -3,18 +3,24 @@
 
   <h1>My Created Cocktails:</h1>
 
-  <%= @my_cocktails.each do |cocktail| %>
-    <%= cocktail.name %>
-  <% end %>
+  <% @my_cocktails.each do |cocktail| %>
+    <div>
+      <%= cocktail.name %>
 
-  <% if false %>
+      <% if cocktail.photo.attached? %>
+        <%= cl_image_tag(cocktail.photo.key, width: 500, height: 500, crop: "fit")  %>
+      <% else %>
+        <%= image_tag 'no_image.png' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
     <h1>Saved Cocktails:</h1>
 
     <%= @saved_cocktails.each do |cocktail| %>
       <%= cocktail.name %>
     <% end %>
-  <% end %>
-
-</div>
-
-
