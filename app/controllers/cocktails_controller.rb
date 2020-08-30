@@ -11,6 +11,11 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def my_cocktails
+    @my_cocktails = Cocktail.where(creator: current_user)
+    @saved_cocktails = SavedCocktail.where(user: current_user).includes(:cocktail)
+  end
+
   def show
     @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
