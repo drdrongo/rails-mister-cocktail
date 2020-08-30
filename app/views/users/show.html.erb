@@ -1,31 +1,36 @@
-<div class="container" style="background-color: white; display: flex; flex-direction: column; align-items: center;">
+<div class="container" style="color: white; display: flex; flex-direction: column; align-items: center;">
   <h1>My Page</h1>
 
   <h1>My Created Cocktails:</h1>
   <% @my_cocktails.each do |cocktail| %>
-    <div>
-      <%= cocktail.name %>
+    <%= link_to cocktail_path(cocktail) do %>
+      <div class="drink-card">
+        <h3 style="flex-basis: 60%; padding: 16px; text-align: center;"><%= cocktail.name %></h3>
+        
 
-      <% if cocktail.photo.attached? %>
-        <%= cl_image_tag(cocktail.photo.key, width: 500, height: 500, crop: "fit")  %>
-      <% else %>
-        <%= image_tag 'no_image.png' %>
-      <% end %>
-    </div>
+        <% if cocktail.photo.attached? %>
+          <%= cl_image_tag(cocktail.photo.key, width: 500, height: 500, crop: "fit", style: "flex-basis: 40%;")  %>
+        <% else %>
+          <%= image_tag 'no_image.png' %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 
 
   <h1>Saved Cocktails:</h1>
   <% @saved_cocktails.each do |saved_cocktail| %>
-    <div>
-      <%= saved_cocktail.cocktail.name %>
+    <%= link_to cocktail_path(saved_cocktail.cocktail) do %>
+      <div class="drink-card">
+        <h3 style="flex-basis: 60%; padding: 16px; text-align: center;"><%= saved_cocktail.cocktail.name %></h3>
 
-      <% if saved_cocktail.cocktail.photo.attached? %>
-        <%= cl_image_tag(saved_cocktail.cocktail.photo.key, width: 500, height: 500, crop: "fit")  %>
-      <% else %>
-        <%= image_tag 'no_image.png' %>
-      <% end %>
-    </div>
+        <% if saved_cocktail.cocktail.photo.attached? %>
+          <%= cl_image_tag(saved_cocktail.cocktail.photo.key, width: 500, height: 500, crop: "fit", style: "flex-basis: 40%;")  %>
+        <% else %>
+          <%= image_tag 'no_image.png' %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
