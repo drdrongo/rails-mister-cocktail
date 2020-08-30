@@ -85,6 +85,13 @@ User.all.each do |user|
   end
 end
 
+User.all.each do |user|
+  saved_cocktail = SavedCocktail.new(
+    user: user,
+    cocktail: Cocktail.all.sample
+  )
+  saved_cocktail.save
+end
 
 
 puts '10 cocktails created.'
