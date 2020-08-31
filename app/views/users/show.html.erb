@@ -1,39 +1,56 @@
+<ul class="nav nav-pills nav-fill button-selected" id="pills-tab" role="tablist" style="height: 60px; display: flex; align-items: stretch;">
+  <li class="nav-item mr-1" role="presentation">
+    <a class="nav-link active" id="pills-created-tab" data-toggle="pill" href="#pills-created" role="tab" aria-controls="pills-created" aria-selected="true">Created Drinks</a>
+  </li>
+  <li class="nav-item mr-1" role="presentation">
+    <a class="nav-link" id="pills-saved-tab" data-toggle="pill" href="#pills-saved" role="tab" aria-controls="pills-saved" aria-selected="false">Saved Drinks</a>
+  </li>
+</ul>
+
 <div class="container" style="color: white; display: flex; flex-direction: column; align-items: center;">
-  <h1>My Page</h1>
 
-  <h1>My Created Cocktails:</h1>
-  <% @my_cocktails.each do |cocktail| %>
-    <%= link_to cocktail_path(cocktail) do %>
-      <div class="drink-card">
-        <h3 style="flex-basis: 60%; padding: 16px; text-align: center;"><%= cocktail.name %></h3>
-        
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-created" role="tabpanel" aria-labelledby="pills-created-tab">
+      <h1>My Created Cocktails:</h1>
+      <% @my_cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="drink-card">
+            <h3 style="flex-basis: 60%; padding: 16px; text-align: center;"><%= cocktail.name %></h3>
+            
 
-        <% if cocktail.photo.attached? %>
-          <%= cl_image_tag(cocktail.photo.key, width: 500, height: 500, crop: "fit", style: "flex-basis: 40%;")  %>
-        <% else %>
-          <%= image_tag 'no_image.png' %>
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag(cocktail.photo.key, width: 500, height: 500, crop: "fit", style: "flex-basis: 40%;")  %>
+            <% else %>
+              <%= image_tag 'no_image.png' %>
+            <% end %>
+          </div>
         <% end %>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
 
+    <div class="tab-pane fade" id="pills-saved" role="tabpanel" aria-labelledby="pills-saved-tab">
+      <h1>Saved Cocktails:</h1>
+      <% @saved_cocktails.each do |saved_cocktail| %>
+        <%= link_to cocktail_path(saved_cocktail.cocktail) do %>
+          <div class="drink-card">
+            <h3 style="flex-basis: 60%; padding: 16px; text-align: center;"><%= saved_cocktail.cocktail.name %></h3>
 
-  <h1>Saved Cocktails:</h1>
-  <% @saved_cocktails.each do |saved_cocktail| %>
-    <%= link_to cocktail_path(saved_cocktail.cocktail) do %>
-      <div class="drink-card">
-        <h3 style="flex-basis: 60%; padding: 16px; text-align: center;"><%= saved_cocktail.cocktail.name %></h3>
-
-        <% if saved_cocktail.cocktail.photo.attached? %>
-          <%= cl_image_tag(saved_cocktail.cocktail.photo.key, width: 500, height: 500, crop: "fit", style: "flex-basis: 40%;")  %>
-        <% else %>
-          <%= image_tag 'no_image.png' %>
+            <% if saved_cocktail.cocktail.photo.attached? %>
+              <%= cl_image_tag(saved_cocktail.cocktail.photo.key, width: 500, height: 500, crop: "fit", style: "flex-basis: 40%;")  %>
+            <% else %>
+              <%= image_tag 'no_image.png' %>
+            <% end %>
+          </div>
         <% end %>
-      </div>
-    <% end %>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+  
+
 </div>
 
-
+  
 
 
