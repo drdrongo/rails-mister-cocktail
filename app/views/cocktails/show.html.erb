@@ -1,32 +1,69 @@
-<div class="w-100 h-100" style="
-  <% if @cocktail.photo.attached? %>
-    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
-  <% end %>
-  background-size: cover;
-  background-position: center;
-  display: flex; flex-direction: column; flex-grow: 1; align-items: center;
-  justify-content: center;
-  background-repeat: no-repeat;
-  flex-grow: 1;
-  ">
+<style>
+  .subheader-white {
+    color: white;
+    margin-top: 8px;
+    border-top: 1px solid orange;
+    padding-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .text-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7em;
+    text-align: center;
+  }
+
+  .text-orange {
+    color: #E67E22;
+  }
+
+  .text-white {
+    color: white;
+  }
+</style>
+
+<div class="container-fluid p-0" style="display: flex; flex-direction: column;">
+
+  <div class="w-100" style="
+    <% if @cocktail.photo.attached? %>
+      background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%="https://res.cloudinary.com/hayatocloud/image/upload/#{@cocktail.photo.key}"%>);
+    <% end %>
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    flex-grow: 1;
+    flex-basis: 
+    ">
+  </div>
   <div class="container-fluid py-3 px-3" style="display: flex; flex-direction: column; align-items: center; background-color: rgba(0, 0, 0, 0.7); width: 100%;">
     <h1 style="font-size: 2.5em; text-align: center; color: white; margin-bottom: 20px; margin-top: 20px;"> <%= @cocktail.name %> </h1>
     <% @doses.each do |dose| %>
       <div style="display: flex; width: 100%; justify-content: space-between; align-items: center; max-width: 500px;">
-        <p style="font-family: 'Cormorant Garamond', serif; color: white; font-size: 1.7em;">
+        <p class="text-main text-white">
           <%= dose.ingredient.name %>
         </p>
 
         <div style="border-top: 1px solid white; flex-grow: 1; height: 10px; margin-left: 8px; margin-right: 8px;"></div>
 
-        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.7em; color: #E67E22;">
+        <p class="text-main text-orange">
           <%= dose.description %>
         </p>
       </div>
     <% end %>
+    <h2 class="subheader-white">Cocktail Description:</h2>
+    <p class="text-main text-white">
+      <%= @cocktail.description %>
+    </p>
   </div>
+  
 </div>
+
 
 
 

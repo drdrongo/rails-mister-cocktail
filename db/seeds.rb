@@ -66,7 +66,8 @@ puts 'Creating 10 cocktails...'
 
 User.all.each do |user|
   cocktail = Cocktail.new(
-    name: Faker::Coffee.blend_name
+    name: Faker::Coffee.blend_name,
+    description: 'Pre-mixed cocktail that combines Bacardi rum (including some 151) with apricot brandy, orange, pineapple and lime juice for a traditional cocktail. All the flavor without the high proof - 25 proof (the original drink called for almost 4 ounces of liquor).'
   ) 
   file = URI.open("https://source.unsplash.com/featured/?cocktail")
   cocktail.photo.attach(io: file, filename: "#{cocktail.name}.jpg", content_type: 'image/jpg')
@@ -85,6 +86,13 @@ User.all.each do |user|
   end
 end
 
+User.all.each do |user|
+  saved_cocktail = SavedCocktail.new(
+    user: user,
+    cocktail: Cocktail.all.sample
+  )
+  saved_cocktail.save
+end
 
 
 puts '10 cocktails created.'
